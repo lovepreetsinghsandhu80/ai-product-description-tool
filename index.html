@@ -1,75 +1,108 @@
+
 <!DOCTYPE html>
-
 <html>
-
 <head>
-
-<title>My AI Tool</title>
+<title>AI Product Generator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-
 body {
-
   background: #101827;
-
   color: white;
-
   font-family: Arial;
-
   text-align: center;
-
   padding: 30px;
-
 }
 
-input, button {
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: #1e293b;
+  padding: 25px;
+  border-radius: 15px;
+}
 
-  padding: 15px;
-
+input, select, button {
+  padding: 14px;
   margin: 10px;
-
+  width: 85%;
   border-radius: 8px;
-
+  border: none;
+  box-sizing: border-box;
 }
 
 button {
-
   background: #38bdf8;
-
+  font-weight: bold;
+  cursor: pointer;
 }
 
+#result {
+  margin-top: 20px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
 </style>
-
 </head>
 
 <body>
+<div class="container">
 
 <h1>🚀 AI Product Generator</h1>
+<p>Create professional product descriptions</p>
 
-<p>Enter your product name</p>
+<input id="product" placeholder="Enter product name">
 
-<input id="product" placeholder="Product name">
+<select id="platform">
+<option value="Shopify">Shopify</option>
+<option value="Amazon">Amazon</option>
+<option value="Online Store">Online Store</option>
+</select>
 
-<button onclick="generate()">Generate</button>
+<button onclick="generate()">Generate Description</button>
 
-<h3 id="result"></h3>
+<div id="result"></div>
+
+<button onclick="copyText()">Copy Description</button>
+
+</div>
 
 <script>
-
 function generate() {
+  let product = document.getElementById("product").value.trim();
+  let platform = document.getElementById("platform").value;
 
-  let product = document.getElementById("product").value;
+  if (!product) {
+    alert("Please enter a product name!");
+    return;
+  }
 
-  document.getElementById("result").innerText =
+  let description =
+    "✨ " + product + "\n\n" +
+    "Discover the amazing " + product + 
+    ", designed to bring convenience and style to your everyday life.\n\n" +
+    "⭐ Key Features:\n" +
+    "• Stylish and practical design\n" +
+    "• Made for everyday convenience\n" +
+    "• A great addition to your lifestyle\n\n" +
+    "🛒 Available for your " + platform + " store.\n\n" +
+    "Order yours today!";
 
-    "Discover our amazing " + product +
-
-    "! Shop now and upgrade your lifestyle.";
-
+  document.getElementById("result").innerText = description;
 }
 
+function copyText() {
+  let text = document.getElementById("result").innerText;
+
+  if (!text) {
+    alert("Generate a description first!");
+    return;
+  }
+
+  navigator.clipboard.writeText(text);
+  alert("Description copied!");
+}
 </script>
 
 </body>
-
 </html>
