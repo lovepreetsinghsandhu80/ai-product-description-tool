@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>My AI Tool</title>
+
+<style>
+
+body {
+
+  background: #101827;
+
+  color: white;
+
+  font-family: Arial;
+
+  text-align: center;
+
+  padding: 30px;
+
+}
+
+input, button {
+
+  padding: 15px;
+
+  margin: 10px;
+
+  border-radius: 8px;
+
+}
+
+button {
+
+  background: #38bdf8;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🚀 AI Product Generator</h1>
+
+<p>Enter your product name</p>
+
+<input id="product" placeholder="Product name">
+
+<button onclick="generate()">Generate</button>
+
+<h3 id="result"></h3>
+
+<script>
+
+function generate() {
+
+  let product = document.getElementById("product").value;
+
+  document.getElementById("result").innerText =
+
+    "Discover our amazing " + product +
+
+    "! Shop now and upgrade your lifestyle.";
+
+}
+
+</script>
+
+</body>
+
+</html>
